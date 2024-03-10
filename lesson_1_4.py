@@ -1,7 +1,7 @@
 #!/user/bin/python3.8           1.4 Методы классов. Параметр self
 # -*- coding: utf-8 -*-
 
-# link  https://proproprogs.ru/python_oop/metody-klassov-parametr-self
+# link https://proproprogs.ru/python_oop/metody-klassov-parametr-self
 
 
 # Класс может содержать свойства (данные) и методы (функции). Благодаря 
