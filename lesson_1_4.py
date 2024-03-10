@@ -1,4 +1,4 @@
-#!/user/bin/python3.8           1.4 Методы классов. Параметр self
+#!/user/bin/python3.11         1.4 Методы классов. Параметр self
 # -*- coding: utf-8 -*-
 
 # link https://proproprogs.ru/python_oop/metody-klassov-parametr-self
