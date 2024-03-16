@@ -66,8 +66,23 @@ class StreamReader:
         return sd, res
 
 
-sr = StreamReader()
-data, result = sr.readlines()
+# # Раскоментировать для теста КЛАССА StreamData
+# sr = StreamReader()
+# data, result = sr.readlines()
+# print(result)
+# print(data.__dict__)
 
-print(result)
-print(data.__dict__)
+
+# программу не менять, только добавить два метода
+lst_in = list(map(str.strip, sys.stdin.readlines()))  # считывание списка строк из входного потока
+# в формате: id, name, old, salary (записанные через пробел)
+
+class DataBase:
+    lst_data = []
+    FIELDS = ('id', 'name', 'old', 'salary')
+
+    # здесь добавлять методы
+
+
+db = DataBase()
+db.insert(lst_in)
