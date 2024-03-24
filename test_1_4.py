@@ -77,6 +77,7 @@ class StreamReader:
 lst_in = list(map(str.strip, sys.stdin.readlines()))  # считывание списка строк из входного потока
 # в формате: id, name, old, salary (записанные через пробел)
 
+
 class DataBase:
     lst_data = []
     FIELDS = ('id', 'name', 'old', 'salary')
