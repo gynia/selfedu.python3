@@ -108,7 +108,7 @@ class Translator:
 
         self.tr.setdefault(eng, [])
         # здесь продолжайте метод add
-        if not rus in self.tr[eng]:
+        if rus not in self.tr[eng]:
             self.tr[eng].append(rus)
 
     def remove(self, eng):
