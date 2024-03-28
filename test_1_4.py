@@ -22,7 +22,7 @@ media2.play()
 
 
 class Graph:
-    #data = []
+    # data = []
     LIMIT_Y = [0, 10]
 
     def set_data(self, data: list):
@@ -39,8 +39,7 @@ graph_1 = Graph()
 graph_1.set_data(li)
 graph_1.draw()
 
-
-#Имеется следующий класс для считывания информации из входного потока:
+# Имеется следующий класс для считывания информации из входного потока:
 import sys
 
 
@@ -73,17 +72,72 @@ class StreamReader:
 # print(data.__dict__)
 
 
-# программу не менять, только добавить два метода
-lst_in = list(map(str.strip, sys.stdin.readlines()))  # считывание списка строк из входного потока
-# в формате: id, name, old, salary (записанные через пробел)
-
+# # Раскоментировать для теста КЛАССА DataBase
+# print()
+# # программу не менять, только добавить два метода
+# lst_in = list(map(str.strip, sys.stdin.readlines()))  # считывание списка строк из входного потока
+# # в формате: id, name, old, salary (записанные через пробел)
 
 class DataBase:
     lst_data = []
     FIELDS = ('id', 'name', 'old', 'salary')
 
     # здесь добавлять методы
+    def insert(self, data):
+        data = [list(str.split(t)) for t in data]
+        for lis in data:
+            self.lst_data.append({val: lis[key] for key, val in enumerate(self.FIELDS)})
+
+    def select(self, a, b):
+        return self.lst_data[a:(b + 1)]
 
 
-db = DataBase()
-db.insert(lst_in)
+# # Раскоментировать для теста КЛАССА DataBase
+# db = DataBase()
+# db.insert(lst_in)
+# print(db.lst_data)
+# print(db.select(0, 10))
+# print(db.select(0, 5))
+# print(db.select(0, 1))
+
+
+class Translator:
+    def add(self, eng, rus):
+        if 'tr' not in self.__dict__:
+            self.tr = {}
+
+        self.tr.setdefault(eng, [])
+        # здесь продолжайте метод add
+        if not rus in self.tr[eng]:
+            self.tr[eng].append(rus)
+
+    def remove(self, eng):
+        # здесь продолжайте метод remove
+        del self.tr[eng]
+
+    def translate(self, eng):
+        # здесь продолжайте метод translate
+        return self.tr.get(eng)
+
+
+# здесь создавайте объект класса Translator
+print()
+tr = Translator()
+tr.add("tree", "дерево")
+tr.add("car", "машина")
+tr.add("car", "автомобиль")
+tr.add("leaf", "лист")
+tr.add("river", "река")
+tr.add("go", "идти")
+tr.add("go", "ехать")
+tr.add("go", "ходить")
+tr.add("go", "ходить")
+tr.add("milk", "молоко")
+print(tr.tr)
+
+tr.remove("go")
+print(tr.tr)
+
+print(tr.translate("car"))
+print(tr.translate("asdf"))
+
