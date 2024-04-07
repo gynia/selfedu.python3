@@ -129,5 +129,58 @@ class TriangleChecker:
 # print(tr.is_triangle())
 
 
+class Graph:
+
+    def __init__(self, data: list, is_show=True):
+        self.data = data[:]
+        self.is_show = is_show
+
+    def set_data(self, data: list):
+        self.data = data
+
+    def show_table(self):
+        if self.is_show:
+            return " ".join(map(str, self.data))
+        return "Отображение данных закрыто"
+
+    def show_graph(self):
+        if self.is_show:
+            return "Графическое отображение данных :" + self.show_table()
+        return "Отображение данных закрыто"
+
+    def show_bar(self):
+        if self.is_show:
+            return "Столбчатая диаграмма: " + self.show_table()
+        return "Отображение данных закрыто"
+
+    def set_show(self, fl_show: bool):
+        self.is_show = fl_show
+
+
+# data_graph = list(map(int, input().split()))
+#
+# d = [1, 2, 3, 4, 5, 6, 10, 28]
+#
+# gr = Graph(data_graph)
+# print(gr.show_bar())
+#
+# gr.set_show(False)
+# print(gr.show_table())
+#
+# gr1 = Graph(d)
+# print(gr1.show_bar())
+#
+# gr1.set_show(False)
+# print(gr1.show_table())
+#
+# gr2 = Graph(data_graph)
+# print(gr2.show_bar())
+#
+# gr2.set_show(False)
+# print(gr2.show_table())
+#
+# print(id(gr.data))
+# print(id(gr1.data))
+# print(id(gr2.data))
 
 
