@@ -28,6 +28,7 @@ for i in range(1, 2000, 2):
     if i == 3:
         p.color = "yellow"
 
+
 # print(points)
 # print(len(points))
 # print(points[1].color)
@@ -102,6 +103,7 @@ class TriangleChecker:
         if test_li[-1] >= sum(test_li[0:2]):
             return 2
         return 3
+
 
 ##
 # tr = TriangleChecker(1, 1, 2)
@@ -183,4 +185,67 @@ class Graph:
 # print(id(gr1.data))
 # print(id(gr2.data))
 
+class CPU:
+    def __init__(self, name, fr):
+        """
+            name - наименование,
+            fr -тактовая частота
+        """
+        self.name = name
+        self.fr = fr
+
+
+class Memory:
+    def __init__(self, name, volume):
+        """
+            name - наименование;
+            volume - объем памяти
+        """
+        self.name = name
+        self.volume = volume
+
+
+class MotherBoard:
+
+    def __init__(self, name, cpu: CPU, *mem_slots: Memory, total_mem_slots=4,):
+        """
+            total_mem_slots = 4 - общее число слотов
+                памяти (атрибут прописывается с этим
+                значением и не меняется);
+            name - наименование;
+            cpu - ссылка на объект класса CPU;
+            mem_slots - список из объектов класса Memory(максимум
+            total_mem_slots = 4 штук по максимальному числу
+                слотов памяти).
+        """
+        self.name = name
+        self.cpu = cpu
+        self.total_mem_slots = total_mem_slots
+
+        if self.total_mem_slots >= len(mem_slots):
+            self.mem_slots = mem_slots
+            self.total_mem_slots = len(mem_slots)
+
+    def get_config(self):
+        li = [f"Материнская плата: {self.name}",
+              f"Центральный процессор: {self.cpu.name}, {self.cpu.fr}",
+              f"Слотов памяти: {len(self.mem_slots)}"]
+        st = "Память:"
+        for el in self.mem_slots:
+            st += f"{el.name}-{el.volume};"
+        li.append(st[:-1])    # последний символ (;) в строке удоляем
+        return li
+
+
+# cpu_1 = CPU("Централ проц_1", 2700)
+# mem_1 = Memory("Память_1", 1)
+# mem_2 = Memory("Память_2", 2)
+# mem_3 = Memory("Память_3", 3)
+# mem_4 = Memory("Память_4", 4)
+#
+# mb = MotherBoard("Материнка_1", cpu_1, mem_3, mem_4)
+# # for i in mb.get_config():
+# #     print(i)
+#
+# print(mb.get_config())
 
