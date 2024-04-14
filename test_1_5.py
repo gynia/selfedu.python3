@@ -249,3 +249,116 @@ class MotherBoard:
 #
 # print(mb.get_config())
 
+
+class Table:
+    '''
+        Table - столы;
+            Вызов Класса gd = ИмяКласса(name, price)
+    '''
+    def __init__(self, name, price):
+        '''
+            name - наименование;
+            price - цена.
+        '''
+        self.name = name
+        self.price = price
+
+
+class TV:
+    '''
+        TV - телевизоры;
+            Вызов Класса gd = ИмяКласса(name, price)
+    '''
+    def __init__(self, name, price):
+        '''
+            name - наименование;
+            price - цена.
+        '''
+        self.name = name
+        self.price = price
+
+
+class Notebook:
+    '''
+        Notebook - ноутбуки;
+            Вызов Класса gd = ИмяКласса(name, price)
+    '''
+    def __init__(self, name, price):
+        '''
+            name - наименование;
+            price - цена.
+        '''
+        self.name = name
+        self.price = price
+
+
+class Cup:
+    '''
+        Cup - кружки.
+            Вызов Класса gd = ИмяКласса(name, price)
+    '''
+    def __init__(self, name, price):
+        '''
+            name - наименование;
+            price - цена.
+        '''
+        self.name = name
+        self.price = price
+
+
+class Cart:
+    def __init__(self):
+        self.goods = list()
+
+    def add(self, gd):
+        '''
+        add(self, gd) - добавление в корзину
+            товара, представленного объектом gd;
+        '''
+        self.goods.append(gd)
+
+    def remove(self, indx):
+        '''
+        remove(self, indx) - удаление из корзины
+            товара по индексу indx;
+        '''
+        self.goods.pop(indx)
+
+    def get_list(self):
+        '''
+        get_list(self) - получение из корзины
+            товаров в виде списка из строк:
+        '''
+        if self.goods:
+            li = []
+            for el in self.goods:
+                li.append(f"{el.name}: {el.price}")
+            return li
+        return "Ничего нет в корзине"
+
+
+cart = Cart()
+# gd = ИмяКласса(name, price)
+
+cart.add(TV("sony", 1000))
+cart.add(TV("samsung", 3000))
+
+cart.add(Table("Модель_стула_1", 400))
+
+cart.add(Notebook("APPLE", 1500))
+cart.add(Notebook("DELL", 1700))
+
+cart.add(Cup("Пей_не ПЬЯНЕй!!!", 120))
+
+# print(cart.get_list())
+# for i in cart.get_list():
+#     print(id(i))
+#
+# cart.remove(2)
+# print(cart.get_list())
+# for i in cart.get_list():
+#     print(id(i))
+
+
+
+
