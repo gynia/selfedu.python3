@@ -360,5 +360,44 @@ cart.add(Cup("Пей_не ПЬЯНЕй!!!", 120))
 #     print(id(i))
 
 
+class ListObject:
+    '''
+        next_obj - ссылка на следующий
+            присоединенный объект (если следующего
+            объекта нет, то next_obj = None);
+        data - данные объекта в виде строки.
+    '''
 
+    def __init__(self, data: str):
+        print("создаем объект ListObject")
+        self.data = data
+        self.next_obj = None
+
+    def link(self, obj):
+        '''
+            link(self, obj) - для присоединения
+                объекта obj такого же класса к
+                текущему объекту self (то есть,
+                атрибут next_obj объекта self
+                должен ссылаться на obj).
+        '''
+        if isinstance(obj, ListObject):
+            self.next_obj = obj.data
+
+
+
+
+data = "2"
+obj = ListObject(data)
+print(obj.data)
+print(obj.next_obj)
+
+data_1 = "4"
+obj_1 = ListObject(data_1)
+obj.link(obj_1)
+print(obj_1.data)
+print(obj_1.next_obj)
+
+print(obj.data)
+print(obj.next_obj)
 
