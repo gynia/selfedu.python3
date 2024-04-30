@@ -22,8 +22,12 @@ class Loader:
         return seq
 
 
-res_1 = Loader.parse_format("4, 5, -6", Factory)
-res_2 = Loader.parse_format("1, 2, 3, -5, 10", Factory)
+# res_1 = Loader.parse_format("4, 5, -6", Factory)
+# res_2 = Loader.parse_format("1, 2, 3, -5, 10", Factory)
+#
+# print(res_1)
+# print(res_2)
 
-print(res_1)
-print(res_2)
+
+
+
